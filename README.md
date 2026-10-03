@@ -25,7 +25,7 @@ local Edge, injects cookies + PRT credentials, and watches all tabs indefinitely
 
 ---
 
-# browser-proxy — PRT SSO across machines
+# EntraPRTSync— PRT SSO across machines
 
 Use an **Entra ID (Azure AD) joined machine's Primary Refresh Token (PRT)** to
 silently authenticate a browser running on a **completely separate, non-joined
