@@ -1,0 +1,522 @@
+@font-face {
+  font-family: "Metropolis";
+  font-style: normal;
+  font-weight: 800;
+  src: url("/fonts/Metropolis-Medium.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Metropolis-Light";
+  font-style: normal;
+  font-weight: 300;
+  src: url("/fonts/Metropolis-Light.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  src: url("/fonts/Inter-Regular.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Inter-Medium";
+  font-style: normal;
+  font-weight: 500;
+  src: url("/fonts/Inter-Medium.woff2") format("woff2");
+}
+
+[data-theme="light"],
+:root {
+  --fontInter: "Inter", sans-serif;
+  --fontInterMedium: "Inter-Medium", sans-serif;
+  --fontMetropolis: "Metropolis", sans-serif;
+  --fontMetropolisLight: "Metropolis-Light", sans-serif;
+  --iconArrowLeft: url("/img/arrow-icon-left.svg");
+  --iconArrowRight: url("/img/arrow-icon-right.svg");
+  --iconCloseX: url("/img/close.svg");
+  --iconGear: url("/img/gear-icon.svg");
+  --iconProxyWarning: url("/img/proxy-warning.svg");
+  --logoMozillaVpn: url("/img/moz-vpn-logo.svg");
+  --menuItemHeight: 28px;
+  --marginInline: 16px;
+  --footerHeight: 48px;
+  --panelSize: 560px;
+  --rowHeight: 48px;
+
+  /* calculated from 12px */
+  --font-size-heading: 1.33rem; /* 16px */
+  --block-line-space-size: 0.5rem; /* 6px */
+  --inline-item-space-size: 0.5rem; /* 6px */
+  --block-line-separation-size: 0.33rem; /* 10px */
+  --inline-icon-space-size: 0.833rem; /* 10px */
+
+  /* Use for url and icon size */
+  --block-url-label-size: 2rem; /* 24px */
+  --inline-start-size: 1.66rem; /* 20px */
+  --inline-button-size: 5.833rem; /* 70px */
+  --icon-size: 1.166rem; /* 14px */
+  --small-text-size: 0.833rem; /* 10px */
+  --small-radius: 3px;
+  --icon-button-size: calc(calc(var(--block-line-separation-size) * 2) + 1.66rem); /* 20px */
+  --inactive-opacity: 0.3;
+  --overflow-size: 1px;
+  --icon-fit: 8;
+
+  background: var(--bgColor);
+  margin-block: 0;
+  margin-inline: 0;
+
+  /* Proton Colors */
+  --badge-destructive-bg-color: #e22850;
+  --badge-destructive-text-color: #fbfbfe;
+  --button-bg-color-primary: #0060df;
+  --button-bg-active-color-primary: #054096;
+  --button-bg-hover-color-primary: #0250bb;
+  --button-bg-focus-color-primary: #0060df;
+  --button-text-color-primary: #fbfbfe;
+  --button-bg-color-secondary: #f0f0f4;
+  --button-bg-active-color-secondary: #cfcfd8;
+  --button-bg-hover-color-secondary: #e0e0e6;
+  --button-destructive-bg-color: #e22850;
+  --button-destructive-bg-active-color: #810220;
+  --button-destructive-bg-hover-color: #c50042;
+  --button-destructive-bg-focus-color: #e22850;
+  --button-destructive-text-color: #fbfbfe;
+  --input-bg-color: #fff;
+  --input-bg-focus-color: #fff;
+  --input-bg-active-color: #054096;
+  --input-border-color: #8f8f9d;
+  --input-border-focus-color: #0060df;
+  --input-border-active-color: #054096;
+  --text-color-primary: #15141a;
+  --menu-bg-active-color: #cfcfd8;
+  --menu-bg-hover-color: #e0e0e6;
+  --panel-bg-color: #fff;
+  --panel-separator-color: rgba(240, 240, 244, 1);
+  --link-color: #0060df;
+  --link-hover-color: #0250bb;
+  --toggle-off-bg-color: #f0f0f4;
+  --toggle-off-bg-active-color: #cfcfd8;
+  --toggle-off-bg-hover-color: #e0e0e6;
+  --toggle-off-bg-focus-color: #f0f0f4;
+  --toggle-off-border-color: #8f8f9d;
+  --toggle-on-bg-color: #0060df;
+  --toggle-on-bg-active-color: #054096;
+  --toggle-on-bg-hover-color: #0250bb;
+  --toggle-on-bg-focus-color: #0060df;
+  --toggle-on-border-color: #0060df;
+  --toggle-on-handle-bg-color: #fff;
+  --usercontext-bg-hover-color: #f0f0fa;
+  --usercontext-bg-focus-color: #e0e0e6;
+  --usercontext-bg-active-color: #cfcfd8;
+
+  --status-success-text-color: green;
+  --status-error-text-color: #e22850;
+}
+
+[data-theme="dark"] {
+  --iconCloseX: url("/img/close-light.svg");
+  --iconGear: url("/img/gear-icon-light.svg");
+  --iconArrowRight: url("/img/arrow-icon-right-light.svg");
+  --iconArrowLeft: url("/img/arrow-icon-left-light.svg");
+  --iconProxyWarning: url("/img/proxy-warning-light.svg");
+  --logoMozillaVpn: url("/img/moz-vpn-logo-light.svg");
+  --bgColor: #42404c;
+  --text-normal-color: #f9f9fa;
+  --primaryCtaDefault: var(--blue40);
+  --primaryCtaHover: var(--blue50);
+  --primaryCtaActive: var(--blue60);
+  --controllerActive: rgb(90, 89, 102);
+  --bgDark: #2b2932;
+
+  /* Proton Colors */
+  --badge-destructive-bg-color: #ff8480;
+  --badge-destructive-text-color: #15141a;
+  --button-bg-color-primary: #0df;
+  --button-bg-active-color-primary: #aaf2ff;
+  --button-bg-hover-color-primary: #80ebff;
+  --button-bg-focus-color-primary: #0df;
+  --button-text-color-primary: #15141a;
+  --button-bg-color-secondary: #2b2a33;
+  --button-bg-active-color-secondary: #5b5b66;
+  --button-bg-hover-color-secondary: #52525e;
+  --button-destructive-bg-color: #ff8480;
+  --button-destructive-bg-active-color: #ffdfe7;
+  --button-destructive-bg-hover-color: #ffbdc5;
+  --button-destructive-bg-focus-color: #ff8480;
+  --button-destructive-text-color: #15141a;
+
+  /* for the input background, we use dark-grey-60 instead of dark-grey-30
+   * instead the panel background is lighter than the page background
+   */
+  --input-bg-color: #2b2a33;
+  --input-bg-active-color: #aaf2ff;
+  --input-bg-focus-color: #52525e;
+  --input-border-color: #8f8f9d;
+  --input-border-active-color: #aaf2ff;
+  --input-border-focus-color: #0df;
+  --link-color: #0df;
+  --link-hover-color: #80ebff;
+  --text-color-primary: #fbfbfe;
+  --menu-bg-active-color: #5b5b66;
+  --menu-bg-hover-color: #52525e;
+  --panel-bg-color: #42414d;
+  --panel-separator-color: rgba(82, 82, 94, 1);
+
+  /* Toggle is currently called `.slider` in the code below. This should be
+   * changed in a follow-up patch to make it more inline with the terms used in
+   * the Proton Design System
+   */
+  --toggle-off-bg-color: #2b2a33;
+  --toggle-off-bg-active-color: #5b5b66;
+  --toggle-off-bg-hover-color: #52525e;
+  --toggle-off-bg-focus-color: #2b2a33;
+  --toggle-off-border-color: #8f8f9d;
+  --toggle-on-bg-color: #0df;
+  --toggle-on-bg-active-color: #aaf2ff;
+  --toggle-on-bg-hover-color: #80ebff;
+  --toggle-on-bg-focus-color: #0df;
+  --toggle-on-border-color: #0df;
+  --toggle-on-handle-bg-color: #42414d;
+  --usercontext-bg-active-color: #5b5b66;
+  --usercontext-bg-focus-color: #2b2a33;
+  --usercontext-bg-hover-color: #52525e;
+}
+
+/* General Rules and Resets */
+
+* {
+  font-size: inherit;
+  margin-block-end: 0;
+  margin-block-start: 0;
+  margin-inline-end: 0;
+  margin-inline-start: 0;
+  padding-block-end: 0;
+  padding-block-start: 0;
+  padding-inline-end: 0;
+  padding-inline-start: 0;
+}
+
+html {
+  background-color: var(--panel-bg-color);
+  box-sizing: border-box;
+  font-size: 12px;
+  overscroll-behavior: none;
+}
+
+body {
+  background-color: var(--panel-bg-color);
+  color: var(--text-color-primary);
+  font-family: var(--fontInter);
+  font-size: 13px;
+  inline-size: 300px;
+  letter-spacing: -0.125px;
+  min-inline-size: 300px;
+}
+
+html,
+body {
+  block-size: 100%; /* Bugfix: issue 948 */
+  /*max-block-size: 300px;
+  min-block-size: 300px;*/
+
+  /* stylelint-disable */
+  scrollbar-width: none;
+  /* stylelint-enable */
+  transition: height 0.1s ease-in-out;
+}
+
+/* Hack for menu icons to use a light color without affecting container icons */
+[data-theme="light"] img.delete-assignment,
+[data-theme="dark"] img.reset-assignment,
+[data-theme="dark"] .trash-button,
+[data-theme="dark"] img.menu-icon,
+[data-theme="dark"] .menu-icon > img,
+[data-theme="dark"] .menu-arrow > img,
+[data-theme="dark"] .info-icon > img {
+  filter: invert(1);
+}
+
+[data-theme="dark"] img.clear-storage-icon,
+[data-theme="dark"] img.delete-assignment,
+[data-theme="dark"] #edit-sites-assigned .menu-icon,
+[data-theme="dark"] #container-info-table .menu-icon {
+  filter: invert(0);
+}
+
+[data-theme="dark"] [data-identity-color="grey"] {
+  --identity-icon-color: var(--text-color-primary);
+}
+
+[data-theme="dark"] [data-identity-color="grey"]:hover {
+  --identity-icon-color: var(--text-color-primary);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+table {
+  border: 0;
+  border-spacing: 0;
+  inline-size: 100%;
+}
+
+/* Helper Classes */
+.hide {
+  display: none !important;
+}
+
+.scrollable {
+  flex: 1;
+  inline-size: 100%;
+  block-size: 100%;
+  overscroll-behavior: none;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-block-end: 8px;
+}
+
+.offpage {
+  opacity: 0;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+
+h3.title {
+  block-size: 48px;
+  color: var(--text-color-primary);
+  font-family: var(--fontMetropolis);
+  font-size: 14px;
+  font-weight: bold;
+  inline-size: 100%;
+  letter-spacing: -0.1px;
+  line-height: 48px;
+  text-align: center;
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  max-block-size: 601px;
+  background-color: var(--bgColor);
+  transition: height 0.1s ease-in-out;
+}
+
+hr {
+  border: 0;
+  border-block-start: 1px solid var(--panel-separator-color);
+  display: block;
+}
+
+.panel-content {
+  padding: 0 16px 16px 16px;
+}
+
+.input-label{
+    display: block;
+    margin-block-end: 8px;
+    margin-block-start: 8px;
+    margin-inline-end: 0;
+    margin-inline-start: 0;
+    text-align: left;
+}
+
+input {
+  border: solid 1px var(--input-border-color);
+  border-radius: 4px;
+}
+
+input[type=text] {
+  block-size: 36px;
+  border-radius: 4px;
+  background-color: var(--input-bg-color);
+  color: var(--text-color-primary);
+  padding-block: 8px;
+  padding-inline: 8px;
+  margin-bottom: 1em;
+}
+
+input[type=number] {
+  block-size: 36px;
+  border-radius: 4px;
+  background-color: var(--input-bg-color);
+  color: var(--text-color-primary);
+  padding-block: 8px;
+  padding-inline: 8px;
+  margin-bottom: 1em;
+}
+
+input[type="text"]:focus {
+  /* Both a border and box-shadow of 1px are needed because using a 2px border
+   * would redraw the input 1px farther to the left.
+   */
+  border: solid 1px var(--input-border-focus-color);
+  box-shadow: 0 0 0 1px var(--input-border-focus-color);
+  outline: none;
+}
+
+.settings input{
+    inline-size: 100%;
+}
+
+
+.button {
+  background-color: var(--button-bg-color-secondary);
+  color: var(--text-color-primary);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  display: block;
+  inline-size: 100%;
+  padding-block: 8px;
+  padding-inline: 16px;
+  text-align: center;
+}
+
+.button.primary {
+  background-color: var(--button-bg-color-primary);
+  color: var(--button-text-color-primary);
+}
+
+.button.primary:hover {
+  background-color: var(--button-bg-hover-color-primary);
+}
+
+.button.primary:focus {
+  outline: 2px solid var(--button-bg-focus-color-primary);
+  outline-offset: 2px;
+}
+
+.button.secondary:hover {
+  background-color: var(--button-bg-hover-color-secondary);
+}
+
+.button.secondary:focus {
+  outline: 2px solid var(--button-bg-focus-color-primary);
+  outline-offset: 2px;
+}
+
+.button.primary:active {
+  background-color: var(--button-bg-active-color-primary);
+  outline: none;
+}
+
+.button.secondary:active {
+  background-color: var(--button-bg-active-color-secondary);
+  outline: none;
+}
+
+
+/* Toggle Switch */
+
+.switch {
+  display: inline-block;
+  block-size: 24px;
+  position: relative;
+  inline-size: 45px;
+}
+
+.switch .switch-input {
+  block-size: 0;
+  opacity: 0;
+  inline-size: 0;
+}
+
+.slider {
+  background-color: var(--toggle-off-bg-color);
+  border-radius: 13px;
+  inset-block-end: 0;
+  box-shadow: 0 0 0 2px var(--toggle-off-border-color);
+  inset-inline-start: 0;
+  position: absolute;
+  inset-inline-end: 0;
+  inset-block-start: 0;
+  transition: 0.1s ease-in-out;
+}
+
+.slider::before {
+  background-color: var(--toggle-off-border-color);
+  border-radius: 50%;
+  inset-block-end: 3px;
+  content: "";
+  block-size: 18px;
+  inset-inline-start: 3px;
+  position: absolute;
+  transition: 0.1s ease-in-out;
+  inline-size: 18px;
+}
+
+input:hover + .slider {
+  background-color: var(--toggle-off-bg-hover-color);
+}
+
+input:focus + .slider {
+  box-shadow:
+    0 0 0 2px var(--toggle-off-border-color),
+    0 0 0 4px var(--toggle-off-bg-color),
+    0 0 0 6px var(--toggle-on-border-color);
+}
+
+input:active + .slider {
+  background-color: var(--toggle-off-bg-active-color);
+}
+
+input:checked + .slider {
+  background-color: var(--toggle-on-bg-color);
+  box-shadow: 0 0 0 2px var(--toggle-on-border-color);
+}
+
+input:checked + .slider::before {
+  background-color: var(--toggle-on-handle-bg-color);
+  transform: translateX(21px);
+}
+
+input:checked:hover + .slider {
+  background-color: var(--toggle-on-bg-hover-color);
+  box-shadow: 0 0 0 2px var(--toggle-on-bg-hover-color);
+}
+
+input:checked:focus + .slider {
+  box-shadow:
+    0 0 0 2px var(--toggle-on-border-color),
+    0 0 0 4px var(--toggle-off-bg-color),
+    0 0 0 6px var(--toggle-on-border-color);
+}
+
+input:checked:active + .slider {
+  background-color: var(--toggle-on-bg-active-color);
+}
+
+input:checked:hover:focus + .slider {
+  background-color: var(--toggle-on-bg-hover-color);
+  box-shadow:
+    0 0 0 2px var(--toggle-on-bg-hover-color),
+    0 0 0 4px var(--toggle-off-bg-color),
+    0 0 0 6px var(--toggle-on-border-color);
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.status{
+  display: block;
+  margin-top: 1em;
+}
+
+.status-success{
+  color: var(--status-success-text-color);
+}
+
+.status-error{
+  color: var(--status-error-text-color);
+}

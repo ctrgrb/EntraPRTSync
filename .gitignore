@@ -1,0 +1,5 @@
+*.exe
+revtun/
+RequestAADRefreshToken/
+obj/
+bin/

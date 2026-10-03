@@ -1,0 +1,60 @@
+{
+  "manifest_version": 2,
+  "name": "ssoproxy",
+  "version": "1.0.5",
+  "description": "SSO Proxy - relays EntraID PRT cookies to Chromium via native messaging",
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAvwKMmqcFA1jHQIroR54EZro23G+SaA1vX1dgO6ZQacrV0FNo27iX0PJ1tpRxFnR9wdMmOlvGI55RIRFlw5bYWw+pWlMpwTIUbnjW+APu+NewaLSEf35xHpPqyb5diriHrhjRtkLAGpWaj8FsolateaWPmFj2T4Ngad3pbSCFJGMRsF9vQGro1NRO0SsARV96zQs4XOQQHRVlg5FvkW3ZPFe92an61oqsyyn2pA5pk1Y5jjnl8juvdfgHP9IOUPQiVDJlnmUQHki9wXNiY6y1gLXpNhFJNqA7orStAMNmelba89DxX4JVWmmx+H2jvSqK6f7EDKrA/0rtlVgn8HJTiwIDAQAB",
+
+  "icons": {
+    "16":  "hacker16.png",
+    "48":  "hacker48.png",
+    "128": "hacker128.png"
+  },
+
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": true
+  },
+
+  "browser_action": {
+    "default_popup": "settings_popup.html",
+    "default_icon": {
+      "16":  "hacker16.png",
+      "48":  "hacker48.png",
+      "128": "hacker128.png"
+    }
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "all_frames": true,
+      "run_at": "document_start"
+    }
+  ],
+
+  "permissions": [
+    "nativeMessaging",
+    "storage",
+    "cookies",
+    "tabs",
+    "webNavigation",
+    "webRequest",
+    "webRequestBlocking",
+    "declarativeNetRequest",
+    "declarativeNetRequestWithHostAccess",
+    "https://login.microsoftonline.com/*",
+    "<all_urls>"
+  ],
+
+  "declarative_net_request": {
+    "rule_resources": [
+      {
+        "id": "ua_spoof",
+        "enabled": true,
+        "path": "rules/ua_spoof.json"
+      }
+    ]
+  }
+}

@@ -1,0 +1,3 @@
+requests[socks]
+websocket-client
+python-socks

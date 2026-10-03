@@ -1,0 +1,9 @@
+{
+  "name": "ssoproxy",
+  "description": "SSO Proxy native messaging host",
+  "path": "C:\\Users\\Admin\\repos\\sso\\bins\\archive\\BrowserNativeMessagingClient_NET4.7.2.exe",
+  "type": "stdio",
+  "allowed_origins": [
+    "chrome-extension://fjkjhjgmiiakphncnigpgongngidebmp/"
+  ]
+}
